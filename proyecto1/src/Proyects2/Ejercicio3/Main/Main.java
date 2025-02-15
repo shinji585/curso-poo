@@ -1,9 +1,9 @@
-package Proyects2.Exercise2.Ejercicio3.Main;
+package Proyects2.Ejercicio3.Main;
 import java.util.*;
 
-import Proyects2.Exercise2.Ejercicio3.Model.Model;
-import Proyects2.Exercise2.Ejercicio3.Service.Auto;
-import Proyects2.Exercise2.Ejercicio3.Service.Moto;
+import Proyects2.Ejercicio3.Model.Model;
+import Proyects2.Ejercicio3.Service.Auto;
+import Proyects2.Ejercicio3.Service.Moto;
 public class Main {
     static Scanner s = new Scanner(System.in);
     public static void main(String[] args) {
@@ -24,7 +24,7 @@ public class Main {
             System.out.println(model);
         }
         
-        System.out.print("\nDesea visualizar el estado de alguno de los vehiculos\n1 para vehiculo\n2 para moto\n3 para no hacer nada:");
+        System.out.print("\nDesea visualizar el estado de alguno de los vehiculos\n1 para vehiculo\n2 para moto\n3 para no hacer nada: ");
         int valor = s.nextInt();
 
         if (valor == 1){
