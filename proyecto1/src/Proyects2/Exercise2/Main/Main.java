@@ -24,7 +24,5 @@ public class Main {
             libro2.mostrarDetalles();
             System.out.println("\n-------------------------------------");
         }
-
-
     }
 }
