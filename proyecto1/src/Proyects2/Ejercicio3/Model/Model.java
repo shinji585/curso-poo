@@ -1,4 +1,4 @@
-package Proyects2.Exercise2.Ejercicio3.Model;
+package Proyects2.Ejercicio3.Model;
 
 public abstract class Model {
     // creamos los atributos abstractos 

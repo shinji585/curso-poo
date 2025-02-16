@@ -1,5 +1,5 @@
-package Proyects2.Exercise2.Ejercicio3.Service;
-import Proyects2.Exercise2.Ejercicio3.Model.Model;;
+package Proyects2.Ejercicio3.Service;
+import Proyects2.Ejercicio3.Model.Model;;
 
 public class Auto extends Model {
     private int capacidad;

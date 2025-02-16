@@ -1,6 +1,6 @@
-package Proyects2.Exercise2.Ejercicio3.Service;
+package Proyects2.Ejercicio3.Service;
 
-import Proyects2.Exercise2.Ejercicio3.Model.Model;
+import Proyects2.Ejercicio3.Model.Model;
 
 public class Moto extends Model {
     private int capacidad;
