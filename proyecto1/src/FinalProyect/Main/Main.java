@@ -146,9 +146,10 @@ public class Main {
         System.out.println("2 - Validar usuario");
         System.out.print("Seleccione la opción: ");
     }
-    public static void CambiarDatos(){
-        System.out.println("Ahora usted puede cambiar datos si lo desea...");
-        System.out.println("ingrese true or false si desea cambiar datos\nSi ingresa true el programa le permitira cambiar informacion\nSi ingresa 2 el programa se saldra de la seccion en la que esta");
-        System.out.print("ingrese su opcion: ");
+    public static void CambiarDatos() {
+        System.out.println("¿Desea actualizar su información?");
+        System.out.println("Ingrese 'true' para modificar sus datos o 'false' para salir.");
+        System.out.print("Opción: ");
     }
+    
 }

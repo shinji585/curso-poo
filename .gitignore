@@ -1,6 +1,24 @@
+ Directorios de configuración de editores
 .vscode/
+.idea/
+
+# Archivos y carpetas de compilación
 bin/
+out/
+
+# Librerías y dependencias
 lib/
-*.json
+
+# Archivos generados por compilación
 *.class
 *.dat
+
+# Archivos de configuración del IDE
+*.iml
+
+# Archivos JSON (si necesitas que algunos JSON sean rastreados, especifica excepciones)
+*.json
+
+# Excluir archivos innecesarios del sistema operativo
+.DS_Store
+Thumbs.db
