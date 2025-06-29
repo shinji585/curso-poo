@@ -67,7 +67,7 @@ public class MsquinaSnakcs {
 
         // validamos que el snack exista en la lista de snacks
         boolean snackEncontrador = false;
-        for (var snack : Snacks.getSnacks()) {
+        for (Snack snack : Snacks.getSnacks()) {
             if (idSnack == snack.getIdSnack()) {
                 // agregamos el snakc
                 productos.add(snack);
