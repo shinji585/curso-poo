@@ -1,6 +1,6 @@
 package Swing.Fundamentos_de_programacion_GUI;
 
-import java.awt.Button;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 
@@ -35,6 +35,7 @@ public class Componentes extends JFrame {
     }
 
     // creamos el primer componente que vamos a estudiar
+    @SuppressWarnings("unused")
     private void createJlabel() {
         // el objecto jlabel es un componente que sirve solamente para mostrar
         // informacion atraves de texto, imagenes o ambas en una ventana

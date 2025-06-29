@@ -1,14 +1,9 @@
 package Swing.Fundamentos_de_programacion_GUI;
 
 import java.awt.FlowLayout;
-import java.awt.Frame;
 import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Scanner;
-import java.util.concurrent.Flow;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
