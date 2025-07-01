@@ -89,9 +89,14 @@ public class Componentes extends JFrame {
          * 
          * 
          */
-        JTextField textField = new JTextField("ingrese un numero por favor",20);
-        JTextField textField2 = new JTextField("ingrese un segundo numero por favor", 20);
+        JTextField textField = new JTextField(20);
+        JTextField textField2 = new JTextField( 20);
         JLabel mostrarSuma = new JLabel("aqui se mostrara la suma");
+        // entre los metodos que tenemos en un jtextfield() algunos de ellos son importantes como el seteditable() que permite que el usuario pueda o no pueda ingresar texto 
+        // textField.setEditable(false);  establecemos que el usuario no pueda editar el texto 
+        // textField2.setEditable(false); estos metodos son buenos pero no permiten ni escribir ni borrar la informacion del textfield si queremos en cierto sentido mostrar informacion por encima ya vimos un metodo dentro el jlabel() que es el setToolTipText() que es un texto que se muestra por encima despues de un segundo 
+        textField.setToolTipText("ingrese el numero 1");
+        textField2.setToolTipText("ingrese el numero 2"); // esto elimina el hecho de que tengamos que ingresar texto que puede ser molesto visualmente para el usuairo 
         JButton sumar = new JButton("sumar numeros");
 
         sumar.addActionListener(e ->{
@@ -100,6 +105,9 @@ public class Componentes extends JFrame {
                 int numero1 = Integer.parseInt(textField.getText());
                 int numero2 = Integer.parseInt(textField2.getText());
                 int suma = numero1 + numero2; 
+                // otro metodo igualmente de util es el setvisible() que permite si queremos que los textfield sigan siendo visibles despues de usuo liberando espacio para luego ser utilizando
+                textField.setVisible(false);
+                textField2.setVisible(false); // esto hace que nuestros programas sean aun mas legibles en cierto sentido sin tener que llegara el grado de javafx por lo antigua que es esta techologia 
                 mostrarSuma.setText(Integer.toString(suma));
             } catch (Exception c) {
                 System.out.println("error de tipo: " + c.getLocalizedMessage());
