@@ -3,7 +3,6 @@ package Swing.Fundamentos_de_programacion_GUI;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.http.WebSocket.Listener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -46,6 +45,7 @@ public class Ejemeplo1_libro extends JFrame{
                 namebox.setText("");
                 greetings.setText(message);
             }
+            
      } 
      public static void main(String[] args) {
         new Ejemeplo1_libro();
