@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Main {
     static Scanner s = new Scanner(System.in);
+  @SuppressWarnings({ "rawtypes", "unchecked" })
   public static void main(String[] args) {
     // ejemplo de la forma en como se diseña una lista sin ningun tipo de dato especifico 
     List mliista = new ArrayList<>();
