@@ -1,5 +1,6 @@
 package com.example.StudyLibreries;
 
+
 public class Hibernate_Study {
     /*
      * en esta seccion estudiaremos mas en profundida lo que seria jakarta validator la forma en como utilizarlo para poder utilizarlo correctamente en nuestros proyectos que se realizan mas adelante incluido en las validaciones que queremos que tenga nuestros programas 
