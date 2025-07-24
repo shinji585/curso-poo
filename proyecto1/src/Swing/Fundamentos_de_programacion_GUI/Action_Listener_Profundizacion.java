@@ -18,6 +18,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+@
 public class Action_Listener_Profundizacion extends JFrame{
       /* 
        * en esta seccion en el dia de hoy profundizaremos en lo que seria las actions en java swing la forma en que se da y la estructura correcta 
