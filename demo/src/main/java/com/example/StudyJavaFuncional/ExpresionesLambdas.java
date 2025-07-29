@@ -3,13 +3,18 @@ package com.example.StudyJavaFuncional;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExpresionesLambdas {
+
+
+public class ExpresionesLambdas  implements Operacion {
     
     /*
      * las expresiones lambdas son funciones sin "nombre" pero que en realidad el sin nombre no es que sea por que se definen en un solo bloque de forma corta no las funciones lambdas son funciones que a cada termino que le llegue le asigna una operacion y al asignar una operacion estas realizan dicha accion 
      */
 
-     public static void main(String[] args) {
+     /**
+     * @param args
+     */
+    public static void main(String[] args) {
         /*
          * por ejemplo en java tenemos el foreach que es una forma facil y que trae el lenguaje de visualizar como esto funciona 
          */
@@ -31,7 +36,7 @@ public class ExpresionesLambdas {
          
          // ahora podemos utilizar sumar en cual quier otra parte por ejemplo 
 
-        int resultado =  sumar.aplicar(10, 20);
+        int resultado =   sumar.aplicar(10, 20);
 
         System.out.println(resultado);
 
@@ -46,12 +51,45 @@ public class ExpresionesLambdas {
         System.out.println(lineal.cuadratica(10, 20));
 
 
+        // creamos un objecto de tipo operacion
+
+        Operacion logaritmos = (a,b) ->  (int) Math.log10(a) + b;
+        
+        // la pregunta es podemos llamar a el metodo excecute sin tener que sobre escribirlo y que nos haga la accion que estamos pensando 
+        System.out.println(logaritmos.excecute(10, 20)); // nos muestra en si la suma entonces si queremos acceder a el metodo excecute tendriamos que sobre escribirlo en dicha clase anonima 
+
+        
+        Operacion logaritmica = new Operacion() {
+            @Override
+            public double excecute(int a, int b) {
+                return (int) Math.log(a) + b;
+            }
+
+            @Override
+            public int aplicar(int a, int b) {
+                return a+b;
+            }
+        };
+
+        // ahora si queremos acceder a dichos elementos los hariamos de la forma 
+        System.out.println(logaritmica.excecute(10, 20)); // y ya no nos devolveria 30 si no 22.0
+
+
 
      }
+
+     // si queremos que dicha accion se aplique tendriamos que hacer 
+     // nota: despues de investigar esto o no es posible o tengo un error ya que la unica forma de sobre escribir dicho metodo es creando una clase anonima de el y cambiando su implementacion
+     @Override
+     public int aplicar(int a, int b) {
+        return (int) Math.log(a) + b;
+     }
 }
-@FunctionalInterface
+@FunctionalInterface 
 interface Operacion {
     int aplicar(int a,int b);
+
+    default double excecute(int a, int b){return a+b;}
 }
 
 
