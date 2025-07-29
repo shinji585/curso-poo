@@ -16,6 +16,6 @@ public class Test {
 
         int pos = comparar.findValue(palabras, "rust");
 
-        System.out.println("Encontrada en la posicion: " + pos);
+        System.out.println("Encontrada en la posicion: " + pos +1);  
     }
 }
