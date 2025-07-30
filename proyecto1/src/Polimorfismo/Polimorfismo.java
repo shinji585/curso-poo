@@ -1,82 +1,156 @@
 package Polimorfismo;
+
 import java.util.*;
+import java.util.function.BiPredicate;
+
 public class Polimorfismo {
     public static void main(String[] args) {
         CocheElectrinco cohe = new CocheElectrinco(0, "volar", "Qatar Airways", 185, 15000, "EC-HCF");
         cohe.MostrarInfo();
-        // ahora aplicaremos un poco de polimorfismo 
+        // ahora aplicaremos un poco de polimorfismo
         System.out.println();
         Electronicos electronico = new Celular(100, "apple", "portatil", "negro");
         electronico.MostrarInfo();
+
+        // probamos aqui en esta seccion lo que viene siendo la referencia arbirtraria
+        // que es similar a la referencia estaticas solo que vienen dadas por metodos de
+        // clase es decir de instancia
+        BiPredicate<CocheElectrinco, Electronicos> comparar = Electronicos::equals;
+
+        Celular appCelular = new Celular(100, "apple", "portatil", "negro");
+
+        // esto lo que nos hace es comparar si un coche electronico es iguala un celular
+        // en el sentido de que son electronicos ambos
+        boolean isEquals = comparar.test(cohe, appCelular);
+
+        if (isEquals) {
+            System.out.println("son iguales");
+        } else {
+            System.out.println("son diferentes");
+        }
     }
 }
-class Electronicos{
+
+class Electronicos {
     static Scanner s = new Scanner(System.in);
-    private int capacidad; 
+    private int capacidad;
     private String funcionalidad;
-    private String marca; 
-    // creamos dos metodos 
-    public Electronicos(int capacidad,String funcionalidad,String marca){
+    private String marca;
+
+    // creamos dos metodos
+    public Electronicos(int capacidad, String funcionalidad, String marca) {
         this.capacidad = capacidad;
         this.funcionalidad = funcionalidad;
         this.marca = marca;
     }
-    public Electronicos(){
-       // metodo vacio    
+
+    public Electronicos() {
+        // metodo vacio
     }
+
     // creamos los setters
-    public void setCapacidad(int capacidad){
+    public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
     }
-    public void setMarca(String marca){
+
+    public void setMarca(String marca) {
         this.marca = marca;
     }
-    public void setFuncionalidad(String funcionalidad){
+
+    public void setFuncionalidad(String funcionalidad) {
         this.funcionalidad = funcionalidad;
     }
-    // creamos los getters 
-    public String getFuncionalidad(){
+
+    // creamos los getters
+    public String getFuncionalidad() {
         return this.funcionalidad;
     }
-    public String getMarca(){
+
+    public String getMarca() {
         return this.marca;
     }
-    public int getCapacidad(){
+
+    public int getCapacidad() {
         return this.capacidad;
     }
-    // implementamos metodos padres 
-    public int bateria(int oputCapacidad){
-        while (oputCapacidad< 0){
+
+    // implementamos metodos padres
+    public int bateria(int oputCapacidad) {
+        while (oputCapacidad < 0) {
             System.out.print("el dispostivo esta apagado\nPor favor conectelo a cargar: ");
             while (!s.hasNextInt()) {
                 System.out.print("la entrada es incorrecta por favor ingrese lo que se le esta solicitando: ");
                 s.next();
             }
-              oputCapacidad = s.nextInt();
+            oputCapacidad = s.nextInt();
         }
-        
+
         return this.capacidad = oputCapacidad;
     }
-    public void MostrarInfo(){
-        System.out.printf("\nsu dispositovo es %s ------ tiene una capacidad de %d ------ su funcionalidad es %s\n",this.marca,this.capacidad,this.funcionalidad);
-    }
-}
-// creamos una nueva clase que implemente y herede la funcionalidad de nuestra clase electronico 
-class CocheElectrinco extends Electronicos{
-    private int  NmPasajero;
-    private double precio; 
-    private String placa; 
 
-    // creamos dos constructores 
-    public CocheElectrinco(){
-        // constructor vacio 
+    public void MostrarInfo() {
+        System.out.printf("\nsu dispositovo es %s ------ tiene una capacidad de %d ------ su funcionalidad es %s\n",
+                this.marca, this.capacidad, this.funcionalidad);
     }
-    public CocheElectrinco(int capacidad,String funcionalidad,String marca,int NmPasajero,double precio,String placa){
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + capacidad;
+        result = prime * result + ((funcionalidad == null) ? 0 : funcionalidad.hashCode());
+        result = prime * result + ((marca == null) ? 0 : marca.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (!(obj instanceof Electronicos))
+            return false;
+        Electronicos other = (Electronicos) obj;
+        if (capacidad != other.capacidad)
+            return false;
+        if (funcionalidad == null) {
+            if (other.funcionalidad != null)
+                return false;
+        } else if (!funcionalidad.equals(other.funcionalidad))
+            return false;
+        if (marca == null) {
+            if (other.marca != null)
+                return false;
+        } else if (!marca.equals(other.marca))
+            return false;
+        return true;
+    }
+
+    // realizamos el metodo equals
+
+}
+
+// creamos una nueva clase que implemente y herede la funcionalidad de nuestra
+// clase electronico
+class CocheElectrinco extends Electronicos {
+    private int NmPasajero;
+    private double precio;
+    private String placa;
+
+    // creamos dos constructores
+    public CocheElectrinco() {
+        // constructor vacio
+    }
+
+    public CocheElectrinco(int capacidad, String funcionalidad, String marca, int NmPasajero, double precio,
+            String placa) {
         super(capacidad, funcionalidad, marca);
         this.NmPasajero = NmPasajero;
         this.precio = precio;
         this.placa = placa;
     }
+
     // Getter para NmPasajero
     public int getNmPasajero() {
         return NmPasajero;
@@ -106,27 +180,38 @@ class CocheElectrinco extends Electronicos{
     public void setPlaca(String placa) {
         this.placa = placa;
     }
-    // ahora implementamos lo que seria la herencia aplicando la sobre escritura de uno de sus metodos y tambien solciitamos la 
+
+    // ahora implementamos lo que seria la herencia aplicando la sobre escritura de
+    // uno de sus metodos y tambien solciitamos la
     @Override
-    public void MostrarInfo(){
-        System.out.printf("\nsu dispositovo es %s ------ tiene una capacidad de %d ------ su funcionalidad es %s\n",getMarca(),getCapacidad(),getFuncionalidad());
-        System.out.printf("el precio del vehiculo es %.2f ---- su numero de placa es %s ----- la cantidad de pasajeros del vehiculo es %d", this.precio,this.placa,this.NmPasajero);
+    public void MostrarInfo() {
+        System.out.printf("\nsu dispositovo es %s ------ tiene una capacidad de %d ------ su funcionalidad es %s\n",
+                getMarca(), getCapacidad(), getFuncionalidad());
+        System.out.printf(
+                "el precio del vehiculo es %.2f ---- su numero de placa es %s ----- la cantidad de pasajeros del vehiculo es %d",
+                this.precio, this.placa, this.NmPasajero);
     }
 }
-class Celular extends Electronicos{
-    private String color; 
-    public Celular(int capacidad,String marca,String funcionalidad,String color){
+
+class Celular extends Electronicos {
+    private String color;
+
+    public Celular(int capacidad, String marca, String funcionalidad, String color) {
         super(capacidad, funcionalidad, marca);
         this.color = color;
     }
-    public void setColor(String color){
+
+    public void setColor(String color) {
         this.color = color;
     }
-    public  String getColor(){
+
+    public String getColor() {
         return this.color;
     }
-    public void MostrarInfo(){
-        System.out.printf("\nsu dispositovo es %s ------ tiene una capacidad de %d ------ su funcionalidad es %s\n",getMarca(),getCapacidad(),getFuncionalidad());
+
+    public void MostrarInfo() {
+        System.out.printf("\nsu dispositovo es %s ------ tiene una capacidad de %d ------ su funcionalidad es %s\n",
+                getMarca(), getCapacidad(), getFuncionalidad());
         System.out.println("el color de su celular es: " + this.color);
     }
 
