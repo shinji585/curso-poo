@@ -1,6 +1,5 @@
 package com.example.StudyJavaFuncional.PaqueteFunction;
 
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.function.Function;
 

@@ -3,8 +3,7 @@ package com.example.StudyJavaFuncional.PaqueteFunction;
 import java.util.Scanner;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
+
 
 public class Functional1 {
     // 1. Function<T, R> es una interfaz funcional:
